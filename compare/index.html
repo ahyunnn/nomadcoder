@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <div id="root"></div>
+  </body>
+  <script src="https://unpkg.com/react@17.0.2/umd/react.production.min.js"></script>
+  <script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.production.min.js"></script>
+  <script>
+    const root = document.getElementById("root");
+    // Javascript를 통해 element를 생성 (쏙성 : HTML태그 이름, id, content)
+    // 그리고 ReactJS가 HTML로 번역
+    const span = React.createElement(
+      "span",
+      { id: "sexy-span", style: { color: "red" } },
+      "hello, i'm span"
+    );
+    // root안에 span을 넣는 코드
+    ReactDOM.render(span, root);
+  </script>
+</html>
+
+<!-- ReactJS의 핵심은 Javascript를 먼저 작성한 후에 HTML을 다룸 -->
