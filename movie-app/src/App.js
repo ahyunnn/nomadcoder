@@ -1,20 +1,16 @@
-import { useEffect, useState } from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Home from "./routes/Home";
+import Detail from "./routes/Detail";
 
 function App() {
-  const [loading, setLoading] = useState(true);
-  const [movies, setMovies] = useState([]);
-
-  useEffect(() => {
-    fetch("https://yts.mx/api/v2/list_movies.json")
-      .then((response) => response.json())
-      .then((json) => {
-        setMovies(json);
-        setLoading(false);
-      });
-  }, []);
-  console.log(movies);
-
-  return <div>{loading ? <h3>Loading...</h3> : null}</div>;
+  return (
+    <Router>
+      <Routes>
+        <Route path="/movie" element={<Detail />} />
+        <Route path="/" element={<Home />} />
+      </Routes>
+    </Router>
+  );
 }
 
 export default App;
