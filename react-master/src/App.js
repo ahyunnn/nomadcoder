@@ -32,6 +32,7 @@ const Box = styled.div`
   justify-content: center;
   align-items: center;
   animation: ${rotateAnimation} 1s linear infinite;
+
   span {
     font-size: 36px;
     /* 버튼에 hover했을 때 */
