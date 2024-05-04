@@ -2,15 +2,13 @@ import styled, { keyframes } from "styled-components";
 
 const Wrapper = styled.div`
   display: flex;
+  height: 100vh;
+  width: 100vw;
+  justify-content: center;
+  align-items: center;
 `;
 
 const rotateAnimation = keyframes`
-  /* from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  } */
   0% {
     transform: rotate(0deg);
     border-radius: 0px;
@@ -24,6 +22,10 @@ const rotateAnimation = keyframes`
   }
 `;
 
+const Emoji = styled.span`
+  font-size: 36px;
+`;
+
 const Box = styled.div`
   height: 200px;
   width: 200px;
@@ -32,17 +34,11 @@ const Box = styled.div`
   justify-content: center;
   align-items: center;
   animation: ${rotateAnimation} 1s linear infinite;
-
-  span {
-    font-size: 36px;
-    /* 버튼에 hover했을 때 */
-    &:hover {
-      font-size: 48px;
-    }
-    /* 버튼을 눌렀을 때 */
-    &:active {
-      opacity: 0;
-    }
+  /* HTML태그로 선택해주는 것이 아니라 컴포넌트 이름으로 선택 : 조건문*/
+  /* HTML태그에 따른 CSS 적용이 아니라 컴포넌트로 선택하기 */
+  /* 부모 컴포넌트에 속해있는 자식 컴포넌트여야 target으로 선택가능 */
+  ${Emoji}:hover {
+    font-size: 98px;
   }
 `;
 
@@ -50,8 +46,9 @@ function App() {
   return (
     <Wrapper>
       <Box>
-        <span>🤩</span>
+        <Emoji>🤩</Emoji>
       </Box>
+      <Emoji>🤩</Emoji>
     </Wrapper>
   );
 }
